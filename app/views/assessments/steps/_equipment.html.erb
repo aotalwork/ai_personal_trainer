@@ -1,0 +1,44 @@
+<h2 class="text-2xl font-bold">
+  ¿Qué equipamiento tienes?
+</h2>
+
+<p class="mt-2 text-slate-400">
+  Selecciona todo el material disponible.
+</p>
+
+<div class="mt-8 grid gap-3 sm:grid-cols-2">
+
+  <% @equipment.each do |item| %>
+
+    <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-700 bg-slate-800 p-4 hover:border-indigo-500">
+
+      <%= check_box_tag "equipment_ids[]",
+                        item.id,
+                        false,
+                        class: "h-5 w-5 rounded border-slate-600 bg-slate-700 text-indigo-600" %>
+
+      <span>
+        <%= item.name %>
+      </span>
+
+    </label>
+
+  <% end %>
+
+</div>
+
+<div class="mt-8 flex justify-between">
+
+  <%= link_to "← Atrás",
+              new_assessment_path(step: "training"),
+              class: "rounded-xl border border-slate-700 px-6 py-3 font-semibold" %>
+
+  <%= form_with url: assessments_path(step: "equipment"),
+                method: :post do %>
+
+    <%= submit_tag "Continuar →",
+                   class: "cursor-pointer rounded-xl bg-indigo-600 px-6 py-3 font-semibold" %>
+
+  <% end %>
+
+</div>

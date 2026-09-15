@@ -1,0 +1,101 @@
+<h2 class="text-2xl font-bold">
+  Salud y limitaciones
+</h2>
+
+<p class="mt-2 text-slate-400">
+  Esta información se utilizará para detectar situaciones que puedan requerir
+  valoración profesional.
+</p>
+
+<div class="mt-6 rounded-2xl border border-red-500/30 bg-red-500/10 p-5 text-sm text-red-200">
+
+  <strong>Importante:</strong>
+
+  Esta aplicación no diagnostica enfermedades ni sustituye a un médico,
+  fisioterapeuta, nutricionista u otro profesional sanitario.
+
+</div>
+
+<%= form_with model: @health_profile,
+              url: assessments_path(step: "health"),
+              method: :post,
+              class: "mt-8 space-y-6" do |form| %>
+
+  <div>
+    <%= form.label :injuries,
+                   "Lesiones actuales o recientes",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :injuries,
+                       rows: 4,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white",
+                       placeholder: "Describe cualquier lesión que quieras comunicar..." %>
+  </div>
+
+  <div>
+    <%= form.label :medical_conditions,
+                   "Condiciones médicas relevantes",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :medical_conditions,
+                       rows: 4,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+  </div>
+
+  <div>
+    <%= form.label :medications,
+                   "Medicaciones declaradas",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :medications,
+                       rows: 3,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+  </div>
+
+  <div>
+
+    <%= form.label :physical_limitations,
+                   "Limitaciones físicas",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :physical_limitations,
+                       rows: 3,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+
+  </div>
+
+  <div>
+
+    <%= form.check_box :has_current_pain,
+                       class: "h-5 w-5 rounded border-slate-600 bg-slate-700 text-indigo-600" %>
+
+    <%= form.label :has_current_pain,
+                   "Actualmente tengo algún dolor que puede afectar al entrenamiento",
+                   class: "ml-2 text-sm text-slate-300" %>
+
+  </div>
+
+  <div>
+
+    <%= form.label :pain_description,
+                   "Descripción del dolor",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :pain_description,
+                       rows: 3,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+
+  </div>
+
+  <div class="flex justify-between">
+
+    <%= link_to "← Atrás",
+                new_assessment_path(step: "availability"),
+                class: "rounded-xl border border-slate-700 px-6 py-3 font-semibold" %>
+
+    <%= form.submit "Continuar →",
+                    class: "cursor-pointer rounded-xl bg-indigo-600 px-6 py-3 font-semibold" %>
+
+  </div>
+
+<% end %>

@@ -1,0 +1,88 @@
+<h2 class="text-2xl font-bold">
+  Vamos con tu alimentación
+</h2>
+
+<p class="mt-2 text-slate-400">
+  Personalizaremos la alimentación según tus preferencias.
+</p>
+
+<%= form_with model: @profile,
+              url: assessments_path(step: "nutrition"),
+              method: :post,
+              class: "mt-8 space-y-6" do |form| %>
+
+  <div>
+    <%= form.label :diet_type,
+                   "Tipo de alimentación",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.select :diet_type,
+                    [
+                      ["Omnívora", "omnivore"],
+                      ["Vegetariana", "vegetarian"],
+                      ["Vegana", "vegan"]
+                    ],
+                    {},
+                    class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+  </div>
+
+  <div>
+    <%= form.label :meals_per_day,
+                   "Comidas al día",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.number_field :meals_per_day,
+                          min: 2,
+                          max: 8,
+                          class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+  </div>
+
+  <div>
+    <%= form.label :food_preferences,
+                   "Alimentos que te gustan",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :food_preferences,
+                       rows: 4,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white",
+                       placeholder: "Ej.: arroz, pollo, huevos, pasta, salmón..." %>
+  </div>
+
+  <div>
+    <%= form.label :disliked_foods,
+                   "Alimentos que no quieres comer",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_area :disliked_foods,
+                       rows: 4,
+                       class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white",
+                       placeholder: "Ej.: brócoli, cebolla..." %>
+  </div>
+
+  <div>
+    <%= form.label :budget_level,
+                   "Presupuesto aproximado",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.select :budget_level,
+                    [
+                      ["Económico", "low"],
+                      ["Medio", "medium"],
+                      ["Flexible", "high"]
+                    ],
+                    {},
+                    class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+  </div>
+
+  <div class="flex justify-between">
+
+    <%= link_to "← Atrás",
+                new_assessment_path(step: "goal"),
+                class: "rounded-xl border border-slate-700 px-6 py-3 font-semibold text-slate-300 hover:bg-slate-800" %>
+
+    <%= form.submit "Continuar →",
+                    class: "cursor-pointer rounded-xl bg-indigo-600 px-6 py-3 font-semibold hover:bg-indigo-500" %>
+
+  </div>
+
+<% end %>

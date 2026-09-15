@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  plan: one
+  export_type: MyString
+  status: MyString
+  file_path: MyString
+
+two:
+  user: two
+  plan: two
+  export_type: MyString
+  status: MyString
+  file_path: MyString

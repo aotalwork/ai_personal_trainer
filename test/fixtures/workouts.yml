@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan: one
+  scheduled_date: 2026-09-10
+  name: MyString
+  focus: MyString
+  duration_minutes: 1
+  notes: MyText
+
+two:
+  plan: two
+  scheduled_date: 2026-09-10
+  name: MyString
+  focus: MyString
+  duration_minutes: 1
+  notes: MyText

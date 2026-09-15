@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  workout: one
+  google_event_id: MyString
+  starts_at: 2026-09-10 15:08:13
+  ends_at: 2026-09-10 15:08:13
+  synced_at: 2026-09-10 15:08:13
+
+two:
+  user: two
+  workout: two
+  google_event_id: MyString
+  starts_at: 2026-09-10 15:08:13
+  ends_at: 2026-09-10 15:08:13
+  synced_at: 2026-09-10 15:08:13

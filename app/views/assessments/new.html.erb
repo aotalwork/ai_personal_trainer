@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-slate-950 px-4 py-8 text-white sm:px-6 lg:px-8">
+
+  <div class="mx-auto max-w-3xl">
+
+    <div class="mb-8">
+      <div class="mb-3 flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-indigo-400">
+            AI PERSONAL TRAINER
+          </p>
+
+          <h1 class="mt-1 text-2xl font-bold">
+            Vamos a conocerte
+          </h1>
+        </div>
+
+        <span class="text-sm text-slate-400">
+          <%= step_number(@step) %>/9
+        </span>
+      </div>
+
+      <div class="h-2 overflow-hidden rounded-full bg-slate-800">
+        <div
+          class="h-full rounded-full bg-indigo-500 transition-all"
+          style="width: <%= step_percentage(@step) %>%">
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-2xl sm:p-8">
+
+      <%= render "steps/#{@step}" %>
+
+    </div>
+
+  </div>
+
+</div>

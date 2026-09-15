@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  calories: 9.99
+  protein_grams: 9.99
+  carbohydrates_grams: 9.99
+  fat_grams: 9.99
+  fiber_grams: 9.99
+  vegetarian: false
+  vegan: false
+  gluten_free: false
+  lactose_free: false
+
+two:
+  name: MyString
+  calories: 9.99
+  protein_grams: 9.99
+  carbohydrates_grams: 9.99
+  fat_grams: 9.99
+  fiber_grams: 9.99
+  vegetarian: false
+  vegan: false
+  gluten_free: false
+  lactose_free: false

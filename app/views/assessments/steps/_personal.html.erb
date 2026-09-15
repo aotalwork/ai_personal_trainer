@@ -1,0 +1,103 @@
+<h2 class="text-2xl font-bold">
+  Cuéntanos quién eres
+</h2>
+
+<p class="mt-2 text-slate-400">
+  Estos datos nos ayudarán a personalizar tu plan.
+</p>
+
+<%= form_with model: @profile,
+              url: assessments_path(step: "personal"),
+              method: :post,
+              class: "mt-8 space-y-6" do |form| %>
+
+  <div class="grid gap-6 sm:grid-cols-2">
+
+    <div>
+      <%= form.label :first_name,
+                     "Nombre",
+                     class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+      <%= form.text_field :first_name,
+                          class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500",
+                          placeholder: "Tu nombre" %>
+    </div>
+
+    <div>
+      <%= form.label :last_name,
+                     "Apellidos",
+                     class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+      <%= form.text_field :last_name,
+                          class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500",
+                          placeholder: "Tus apellidos" %>
+    </div>
+
+    <div>
+      <%= form.label :birth_date,
+                     "Fecha de nacimiento",
+                     class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+      <%= form.date_field :birth_date,
+                          class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white focus:border-indigo-500 focus:ring-indigo-500" %>
+    </div>
+
+    <div>
+      <%= form.label :sex,
+                     "Sexo",
+                     class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+      <%= form.select :sex,
+                      [
+                        ["Selecciona", ""],
+                        ["Hombre", "male"],
+                        ["Mujer", "female"],
+                        ["Otro", "other"],
+                        ["Prefiero no decirlo", "prefer_not_to_say"]
+                      ],
+                      {},
+                      class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white focus:border-indigo-500 focus:ring-indigo-500" %>
+    </div>
+
+    <div>
+      <%= form.label :height_cm,
+                     "Altura (cm)",
+                     class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+      <%= form.number_field :height_cm,
+                            step: 0.1,
+                            class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white focus:border-indigo-500 focus:ring-indigo-500",
+                            placeholder: "180" %>
+    </div>
+
+    <div>
+      <%= form.label :weight_kg,
+                     "Peso (kg)",
+                     class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+      <%= form.number_field :weight_kg,
+                            step: 0.1,
+                            class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white focus:border-indigo-500 focus:ring-indigo-500",
+                            placeholder: "80" %>
+    </div>
+
+  </div>
+
+  <div>
+    <%= form.label :location,
+                   "Ciudad / país",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.text_field :location,
+                        class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white focus:border-indigo-500 focus:ring-indigo-500",
+                        placeholder: "Madrid, España" %>
+  </div>
+
+  <div class="flex justify-end pt-4">
+
+    <%= form.submit "Continuar →",
+                    class: "cursor-pointer rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white transition hover:bg-indigo-500" %>
+
+  </div>
+
+<% end %>

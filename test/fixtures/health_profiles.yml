@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  injuries: MyText
+  medical_conditions: MyText
+  medications: MyText
+  physical_limitations: MyText
+  professional_restrictions: MyText
+
+two:
+  user: two
+  injuries: MyText
+  medical_conditions: MyText
+  medications: MyText
+  physical_limitations: MyText
+  professional_restrictions: MyText

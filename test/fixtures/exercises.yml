@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  muscle_group: MyString
+  difficulty: MyString
+  movement_pattern: MyString
+  instructions: MyText
+  contraindications: MyText
+
+two:
+  name: MyString
+  description: MyText
+  muscle_group: MyString
+  difficulty: MyString
+  movement_pattern: MyString
+  instructions: MyText
+  contraindications: MyText

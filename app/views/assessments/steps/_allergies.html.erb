@@ -1,0 +1,90 @@
+<h2 class="text-2xl font-bold">
+  Alergias e intolerancias
+</h2>
+
+<p class="mt-2 text-slate-400">
+  Es importante que esta información sea lo más precisa posible.
+</p>
+
+<%= form_with url: assessments_path(step: "allergies"),
+              method: :post,
+              scope: :allergies,
+              class: "mt-8 space-y-8" do |form| %>
+
+  <div>
+
+    <h3 class="mb-4 font-semibold">
+      Alergias
+    </h3>
+
+    <div class="grid gap-3 sm:grid-cols-2">
+
+      <% @allergies.each do |allergy| %>
+
+        <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-700 bg-slate-800 p-4 hover:border-indigo-500">
+
+          <%= check_box_tag "allergies[allergy_ids][]",
+                            allergy.id,
+                            Current.user.allergies.include?(allergy),
+                            class: "h-5 w-5 rounded border-slate-600 bg-slate-700 text-indigo-600" %>
+
+          <span>
+            <%= allergy.name %>
+          </span>
+
+        </label>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div>
+
+    <h3 class="mb-4 font-semibold">
+      Intolerancias
+    </h3>
+
+    <div class="grid gap-3 sm:grid-cols-2">
+
+      <% @intolerances.each do |intolerance| %>
+
+        <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-700 bg-slate-800 p-4 hover:border-indigo-500">
+
+          <%= check_box_tag "allergies[intolerance_ids][]",
+                            intolerance.id,
+                            Current.user.intolerances.include?(intolerance),
+                            class: "h-5 w-5 rounded border-slate-600 bg-slate-700 text-indigo-600" %>
+
+          <span>
+            <%= intolerance.name %>
+          </span>
+
+        </label>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-200">
+
+    <strong>Importante:</strong>
+    las alergias alimentarias deben comunicarse siempre a un profesional sanitario cuando corresponda.
+
+  </div>
+
+  <div class="flex justify-between">
+
+    <%= link_to "← Atrás",
+                new_assessment_path(step: "nutrition"),
+                class: "rounded-xl border border-slate-700 px-6 py-3 font-semibold text-slate-300" %>
+
+    <%= form.submit "Continuar →",
+                    class: "cursor-pointer rounded-xl bg-indigo-600 px-6 py-3 font-semibold" %>
+
+  </div>
+
+<% end %>

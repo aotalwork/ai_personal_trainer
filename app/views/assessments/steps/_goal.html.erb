@@ -1,0 +1,79 @@
+<h2 class="text-2xl font-bold">
+  ¿Cuál es tu objetivo?
+</h2>
+
+<p class="mt-2 text-slate-400">
+  Elegiremos el enfoque de entrenamiento y nutrición adecuado.
+</p>
+
+<%= form_with model: @profile,
+              url: assessments_path(step: "goal"),
+              method: :post,
+              class: "mt-8 space-y-8" do |form| %>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+
+    <% Profile::GOALS.each do |goal| %>
+
+      <% labels = {
+        "fat_loss" => ["Perder grasa", "Reducir grasa corporal"],
+        "muscle_gain" => ["Ganar músculo", "Aumentar masa muscular"],
+        "recomposition" => ["Recomposición", "Perder grasa y ganar músculo"],
+        "strength" => ["Fuerza", "Mejorar fuerza"],
+        "performance" => ["Rendimiento", "Mejorar rendimiento deportivo"],
+        "maintenance" => ["Mantener", "Mantener mi estado actual"]
+      } %>
+
+      <label class="cursor-pointer">
+        <%= form.radio_button :goal,
+                              goal,
+                              class: "peer sr-only" %>
+
+        <div class="rounded-2xl border border-slate-700 bg-slate-800 p-5 transition hover:border-indigo-500 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10">
+
+          <p class="font-semibold">
+            <%= labels[goal][0] %>
+          </p>
+
+          <p class="mt-1 text-sm text-slate-400">
+            <%= labels[goal][1] %>
+          </p>
+
+        </div>
+      </label>
+
+    <% end %>
+
+  </div>
+
+  <div>
+
+    <%= form.label :activity_level,
+                   "Actividad diaria",
+                   class: "mb-2 block text-sm font-medium text-slate-300" %>
+
+    <%= form.select :activity_level,
+                    [
+                      ["Sedentario", "sedentary"],
+                      ["Ligero", "lightly_active"],
+                      ["Moderado", "moderately_active"],
+                      ["Alto", "very_active"],
+                      ["Muy alto", "extremely_active"]
+                    ],
+                    {},
+                    class: "w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white" %>
+
+  </div>
+
+  <div class="flex justify-between">
+
+    <%= link_to "← Atrás",
+                new_assessment_path(step: "personal"),
+                class: "rounded-xl border border-slate-700 px-6 py-3 font-semibold text-slate-300 hover:bg-slate-800" %>
+
+    <%= form.submit "Continuar →",
+                    class: "cursor-pointer rounded-xl bg-indigo-600 px-6 py-3 font-semibold hover:bg-indigo-500" %>
+
+  </div>
+
+<% end %>
